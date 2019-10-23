@@ -21,6 +21,7 @@ class MaxIntSet
   end
 
   def validate!(num)
+    raise ArgumentError.new "Out of bounds" unless is_valid?(num)
   end
 end
 
