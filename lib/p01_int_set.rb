@@ -39,7 +39,7 @@ class IntSet
 
   def insert(num)
     num = num.to_int
-    self[num] << num
+    self[num] << num unless include?(num)
   end
 
   def remove(num)
