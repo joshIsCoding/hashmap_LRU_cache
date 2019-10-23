@@ -5,16 +5,14 @@ end
 class Array
   def hash
     hashable_int = 0 
-    each_with_index{ |val, i| hashable_int += (val^i) }
+    each_with_index{ |val, i| hashable_int += (val.ord^i) }
     hashable_int.hash
   end
 end
 
 class String
   def hash
-    hashable_int = 0
-    each_char.with_index{ |char, i| hashable_int += (char.ord^i) }
-    hashable_int.hash
+    split("").hash
   end
 end
 
