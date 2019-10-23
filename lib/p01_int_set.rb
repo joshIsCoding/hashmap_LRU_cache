@@ -38,12 +38,17 @@ class IntSet
   end
 
   def insert(num)
+    num = num.to_int
+    self[num] << num
   end
 
   def remove(num)
+    num = num.to_int
+    self[num].delete(num)
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
