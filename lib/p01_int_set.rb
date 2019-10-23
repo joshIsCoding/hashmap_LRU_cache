@@ -1,5 +1,5 @@
 class MaxIntSet
-  attr_reader :max
+  attr_reader :max, :store
   def initialize(max)
     @max = max
     @store = Array.new(max, false)
