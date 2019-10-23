@@ -50,6 +50,8 @@ class IntSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    index = (num % num_buckets).abs
+    @store[index]
   end
 
   def num_buckets
