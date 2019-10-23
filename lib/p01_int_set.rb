@@ -6,6 +6,8 @@ class MaxIntSet
   end
 
   def insert(num)
+    validate!(num)
+    @store[num] = true
   end
 
   def remove(num)
