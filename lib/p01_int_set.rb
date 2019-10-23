@@ -17,6 +17,7 @@ class MaxIntSet
   private
 
   def is_valid?(num)
+    num < max && num >= 0
   end
 
   def validate!(num)
