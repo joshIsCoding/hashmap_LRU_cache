@@ -4,7 +4,9 @@ end
 
 class Array
   def hash
-    
+    hashable_int = 0 
+    each_with_index{ |val, i| hashable_int += (val^i) }
+    hashable_int.hash
   end
 end
 
