@@ -12,6 +12,9 @@ end
 
 class String
   def hash
+    hashable_int = 0
+    each_char.with_index{ |char, i| hashable_int += (char.ord^i) }
+    hashable_int.hash
   end
 end
 
