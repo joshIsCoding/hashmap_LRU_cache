@@ -23,6 +23,10 @@ end
 
 class LinkedList
   def initialize
+    @head = Node.new(:head)
+    @tail = Node.new(:tail)
+    @head.next = @tail
+    @tail.prev = @head
   end
 
   def [](i)
