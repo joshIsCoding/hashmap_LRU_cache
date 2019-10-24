@@ -19,6 +19,8 @@ class HashSet
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    index = num.hash % num_buckets
+    @store[index]
   end
 
   def num_buckets
