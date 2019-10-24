@@ -20,6 +20,8 @@ class Hash
   # This returns 0 because rspec will break if it returns nil
   # Make sure to implement an actual Hash#hash method
   def hash
-    0
+    hashable_int = 0
+    each { |k,v| hashable_int += k.to_s.hash * v.to_s.hash }
+    hashable_int.hash
   end
 end
