@@ -35,12 +35,15 @@ class LinkedList
   end
 
   def first
+    return @head.next unless empty?
   end
 
   def last
+    return @tail.prev unless empty?
   end
 
   def empty?
+    @head.next == @tail && @tail.prev == @head
   end
 
   def get(key)
