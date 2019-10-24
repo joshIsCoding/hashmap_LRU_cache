@@ -53,6 +53,13 @@ class LinkedList
   end
 
   def append(key, val)
+    last_node = @tail.prev
+    new_node = Node.new(key, val)
+
+    last_node.next = new_node
+    new_node.prev = last_node
+    new_node.next = @tail
+    @tail.prev = new_node
   end
 
   def update(key, val)
