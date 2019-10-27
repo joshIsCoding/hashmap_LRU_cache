@@ -72,6 +72,9 @@ class LinkedList
   end
 
   def update(key, val)
+    self.each do |node|
+      node.val = val if node.key == key
+    end
   end
 
   def remove(key)
