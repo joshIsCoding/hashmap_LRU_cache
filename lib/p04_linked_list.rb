@@ -78,6 +78,9 @@ class LinkedList
   end
 
   def remove(key)
+    self.each do |node|
+      node.remove if node.key == key
+    end
   end
 
   def each(&each_block)
