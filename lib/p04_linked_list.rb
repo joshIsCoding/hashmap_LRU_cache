@@ -55,7 +55,10 @@ class LinkedList
   end
 
   def include?(key)
-    
+    self.each do |node|
+      return true if node.key == key
+    end
+    false
   end
 
   def append(key, val)
@@ -76,7 +79,6 @@ class LinkedList
 
   def each(&each_block)
     current_node = @head.next
-    debugger
     until current_node == @tail
       puts each_block.call(current_node)
       current_node = current_node.next
