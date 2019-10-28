@@ -18,6 +18,7 @@ class HashMap
     if target_bucket.include?(key)
       target_bucket.update(key, val)
     else
+      resize! if self.count == num_buckets - 1
       target_bucket.append(key, val)
       self.count +=1
     end
@@ -61,6 +62,12 @@ class HashMap
 
   def resize!
 
+    new_num_buckets = num_buckets * 2
+    new_store = Array.new(new_num_buckets) { LinkedList.new }
+    self.each do |k, v| 
+      new_store[k.hash % new_num_buckets].append(k, v)
+    end
+    @store = new_store
   end
 
   def bucket(key)
