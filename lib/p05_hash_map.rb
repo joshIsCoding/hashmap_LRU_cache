@@ -9,9 +9,17 @@ class HashMap
   end
 
   def include?(key)
+    bucket(key).include?(key)
   end
 
   def set(key, val)
+    target_bucket = bucket(key)
+    if target_bucket.include?(key)
+      target_bucket.update(key, val)
+    else
+      target_bucket.append(key, val)
+      self.count +=1
+    end
   end
 
   def get(key)
@@ -41,6 +49,7 @@ class HashMap
   end
 
   def resize!
+
   end
 
   def bucket(key)
