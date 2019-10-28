@@ -23,6 +23,7 @@ class HashMap
   end
 
   def get(key)
+    bucket(key).get(key)
   end
 
   def delete(key)
