@@ -14,6 +14,13 @@ class LRUCache
   end
 
   def get(key)
+    if @map.include?(key)
+      update_node!(@map[key])
+    else
+      calc!(key)
+    end
+    eject! if count > @max
+    @store.last.val
   end
 
   def to_s
