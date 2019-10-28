@@ -86,7 +86,7 @@ class LinkedList
   def each(&each_block)
     current_node = @head.next
     until current_node == @tail
-      puts each_block.call(current_node)
+      each_block.call(current_node)
       current_node = current_node.next
     end
   end
