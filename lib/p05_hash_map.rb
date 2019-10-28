@@ -27,6 +27,11 @@ class HashMap
   end
 
   def delete(key)
+    target_bucket = bucket(key)
+    if target_bucket.include?(key)
+      target_bucket.remove(key)
+      self.count -= 1
+    end
   end
 
   def each
