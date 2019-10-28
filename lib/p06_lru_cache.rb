@@ -42,5 +42,8 @@ class LRUCache
   end
 
   def eject!
+    oldest_node = @store.first
+    @map.delete(oldest_node.key)
+    oldest_node.remove
   end
 end
