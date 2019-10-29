@@ -35,6 +35,7 @@ class DynamicArray
   end
 
   def [](i)
+    @store[i]
   end
 
   def []=(i, val)
@@ -60,9 +61,11 @@ class DynamicArray
   end
 
   def first
+    @store[0]
   end
 
   def last
+    @store[count-1]
   end
 
   def each
