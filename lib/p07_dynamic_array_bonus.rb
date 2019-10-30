@@ -39,6 +39,7 @@ class DynamicArray
   end
 
   def []=(i, val)
+    @store[i] = val
   end
 
   def capacity
