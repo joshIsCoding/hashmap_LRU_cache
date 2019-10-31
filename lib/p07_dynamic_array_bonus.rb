@@ -87,5 +87,9 @@ class DynamicArray
   private
 
   def resize!
+    new_store = StaticArray.new(capacity * 2)
+    (0...capacity).times { |i| new_store[i] = @store[i] }
+    @store = new_store
+
   end
 end
