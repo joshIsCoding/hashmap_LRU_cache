@@ -50,6 +50,10 @@ class DynamicArray
   end
 
   def push(val)
+    resize! if count == @store.length
+    @store[count] = val
+    self.count += 1
+    nil
   end
 
   def unshift(val)
