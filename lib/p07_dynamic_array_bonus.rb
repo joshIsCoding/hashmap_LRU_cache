@@ -60,6 +60,13 @@ class DynamicArray
   end
 
   def pop
+    if last
+      last_ele = last 
+      @store[count - 1] = nil
+      self.count -= 1
+      return last_ele
+    end
+    nil
   end
 
   def shift
@@ -70,7 +77,7 @@ class DynamicArray
   end
 
   def last
-    @store[count-1]
+    @store[count-1] 
   end
 
   def each
