@@ -77,7 +77,7 @@ class DynamicArray
   end
 
   def last
-    @store[count-1] 
+    @store[count-1] if count > 0
   end
 
   def each
