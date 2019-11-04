@@ -28,6 +28,7 @@ end
 
 class DynamicArray
   attr_accessor :count
+  include Enumerable
 
   def initialize(capacity = 8)
     @store = StaticArray.new(capacity)
@@ -80,7 +81,9 @@ class DynamicArray
     @store[count-1] if count > 0
   end
 
-  def each
+  def each(&block)
+    count.times { |i| block.call(self[i]) }
+    nil
   end
 
   def to_s
