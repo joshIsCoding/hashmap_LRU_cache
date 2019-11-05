@@ -61,6 +61,17 @@ class DynamicArray
   end
 
   def unshift(val)
+    resize! if count == @store.length
+    prev = val
+    i = 0
+    while i <= count
+      current = @store[i]
+      @store[i] = prev
+      prev = current
+      i +=1
+    end
+    self.count += 1
+    nil
   end
 
   def pop
@@ -105,7 +116,7 @@ class DynamicArray
 
   def resize!
     new_store = StaticArray.new(capacity * 2)
-    (0...capacity).times { |i| new_store[i] = @store[i] }
+    capacity.times { |i| new_store[i] = @store[i] }
     @store = new_store
 
   end
