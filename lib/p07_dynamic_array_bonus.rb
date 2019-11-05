@@ -48,6 +48,7 @@ class DynamicArray
   end
 
   def include?(val)
+    self.any? { |ele| val == ele }
   end
 
   def push(val)
