@@ -36,7 +36,9 @@ class DynamicArray
   end
 
   def [](i)
-    @store[i]
+    return @store[i]
+    rescue RuntimeError
+    nil
   end
 
   def []=(i, val)
