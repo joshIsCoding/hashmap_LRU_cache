@@ -85,6 +85,14 @@ class DynamicArray
   end
 
   def shift
+    i = 0
+    shifted_ele = @store[i]
+    while i < count
+      @store[i] = @store[i+1]
+      i +=1
+    end
+    self.count -= 1
+    shifted_ele
   end
 
   def first
