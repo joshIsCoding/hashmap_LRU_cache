@@ -36,13 +36,15 @@ class DynamicArray
   end
 
   def [](i)
-    return @store[i]
-    rescue RuntimeError
-    nil
+    actual_i = validate(i)
+    return nil unless actual_i
+    @store[actual_i]
   end
 
   def []=(i, val)
-    @store[i] = val
+    actual_i = validate(i)
+    return nil unless actual_i
+    @store[actual_i] = val
   end
 
   def capacity
@@ -130,5 +132,15 @@ class DynamicArray
     capacity.times { |i| new_store[i] = @store[i] }
     @store = new_store
 
+  end
+
+  def validate(i)
+    if i >= 0 && i < count
+      return i
+    elsif i < 0 && i >= -count 
+      return count + i
+    else
+      return nil
+    end
   end
 end
